@@ -48,7 +48,7 @@ const store = createStore(
     allReducers,
     {
         trendingMovies: [{name: "spiderverse"}],
-        user: 'Deniz'
+        user: 'partner'
     },
     allStoreEnhancers
 );

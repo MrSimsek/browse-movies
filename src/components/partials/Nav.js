@@ -24,7 +24,7 @@ export default class Nav extends Component {
                         <Link to="/about">About</Link>
                     </li>
                 </ul>
-                <p>Hello {this.props.user}!</p>
+                <p>Howdy {this.props.user}!</p>
             </nav>
         );
     }
