@@ -27,7 +27,7 @@ export default class MovieDetails extends Component {
     render() {
         const movie = this.state.movie;
         return(
-            <div className="MovieDetails" style={{display: 'flex', flexDirection: 'row', width: '75%', margin: 'auto', marginTop: '2em'}}>
+            <div className="MovieDetails">
                 <img className="MoviePoster" src={"https://image.tmdb.org/t/p/w400" + movie.poster_path} alt={movie.title} style={{display: 'block'}}/>
                 <div className="MovieDetails-info" style={{margin: '1em 3em'}}>
                     <h1 className="MovieDetails-info-title" style={{marginTop: 0, fontSize: '2.5em'}}>{movie.title}</h1>
