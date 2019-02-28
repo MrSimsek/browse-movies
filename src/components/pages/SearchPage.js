@@ -86,7 +86,7 @@ export default class SearchPage extends Component {
           </Helmet>
           <input
             className="SearchBar"
-            placeholder="Enter search term"
+            placeholder="Enter search term (default is 'Lord') 🔍"
             ref={input => this.search = input}
             onChange={this.handleInputChange}
           />

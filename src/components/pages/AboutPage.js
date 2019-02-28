@@ -10,7 +10,9 @@ export default class AboutPage extends Component {
                     <title>About | Movies Search App</title>
                     <link rel="canonical" href="http://mysite.com/example" />
                 </Helmet>
-                This is about!
+                <div className="AboutPage-info" style={{marginTop: '2em', textAlign: 'center', fontSize: '2em'}}>
+                    This is About!
+                </div>
             </div>
         );
     }

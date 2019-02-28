@@ -19,7 +19,7 @@ class TrendingMovies extends Component {
                 localStorage.setItem("result", JSON.stringify(result));
                 result.results.forEach((movie) => {
                     trending.push(
-                        <li key={movie.id}>
+                        <li key={movie.id} className="MoviesSliderItem">
                             <Link to={{pathname: `/movies/${movie.id}`, state: {movieJSON: movie}}}>    
                                 <img src={"http://image.tmdb.org/t/p/w185" + movie.poster_path} alt="movie poster" style={{display: 'block', borderRadius: 5}} />
                                 <p>{movie.title}</p>
@@ -36,7 +36,7 @@ class TrendingMovies extends Component {
             const result = JSON.parse(localStorage.getItem("result"));
             result.results.forEach((movie) => {
                 trending.push(
-                    <li key={movie.id}>
+                    <li key={movie.id} className="MoviesSliderItem">
                         <Link to={{pathname: `/movies/${movie.id}`, state: {movieJSON: movie}}}>
                             <img src={"http://image.tmdb.org/t/p/w185" + movie.poster_path} alt="movie poster" style={{display: 'block', borderRadius: 5}} />
                             <p>{movie.title}</p>
@@ -52,10 +52,10 @@ class TrendingMovies extends Component {
 
     render() {
         return(
-            <div className="TrendingMovies">
-                <h2>Trending Movies</h2>
+            <div className="TrendingMovies" style={{marginTop: '2em'}}>
+                <h1>Trending Movies</h1>
                 <div className="Trending">
-                    <ul>
+                    <ul className="MoviesSlider active">
                         {this.state.movies}
                     </ul>
                 </div>

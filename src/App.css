@@ -54,6 +54,7 @@
 
 .Trending {
   overflow: scroll;
+  border-bottom: 3px solid black;
 }
 
 .Trending > ul {
@@ -62,11 +63,14 @@
   flex-direction: row;
 }
 
+.Trending > ul.active {
+  cursor: grabbing;
+}
+
 .Trending > ul > li {
   display: inline-block;
   margin-right: 1em;
   max-width: 185px;
-  cursor: pointer;
 }
 
 .Trending > ul > li img:hover {
@@ -74,11 +78,14 @@
 }
 
 .SearchBar {
-  margin: 1em auto;
+  margin: auto;
+  margin-bottom: 1em;
   border: none;
-  font-size: 1em;
+  font-size: 1.5em;
+  border-bottom: 3px solid black;
   padding: 1em;
   display: block;
+  width: 90%;
 }
 
 .MoviesList {
