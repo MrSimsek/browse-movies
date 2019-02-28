@@ -52,7 +52,7 @@
 }
 
 .Trending {
-  overflow: scroll;
+  overflow-x: scroll;
   border-bottom: 3px solid black;
 }
 
@@ -77,10 +77,10 @@
 }
 
 .SearchBar {
-  margin: auto;
-  margin-bottom: 1em;
+  margin: 1em auto;
   border: none;
-  font-size: 1.5em;
+  font-size: 110%;
+  text-align: center;
   border-bottom: 3px solid black;
   padding: 1em;
   display: block;
@@ -107,6 +107,25 @@
   flex-direction: row;
   padding: 10px;
   border-radius: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+  .App-nav {
+    flex-direction: column;
+  }
+
+  .TrendingMovies {
+    width: 90%;
+  }
+
+  .MoviesList {
+    width: 100%;
+  }
+
+  .MovieItemContainer {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .MovieItemInfo {

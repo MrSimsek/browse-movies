@@ -11,9 +11,31 @@ import { Provider } from 'react-redux';
 import trendingMoviesReducer from './reducers/trendingMoviesReducer';
 import userReducer from './reducers/userReducer';
 
+const initState = {
+    favorites: [],
+    garbages: []
+}
+
+// Reducers change the state
+function favoritesReducer(state = initState, action) {
+    switch(action.type) {
+        case 'ADD_FAVORITE':
+            return {
+                ...state,
+                favorites: [ ...state.favorites, action.favorite ]
+            };
+        default:
+            return state;
+    }
+}
+
+// Actions informs the store about a change
+const favoriteAction = { type: 'ADD_FAVORITE', favorite: { type: "movie", data: {} }}
+
 const allReducers = combineReducers({
     trendingMovies: trendingMoviesReducer,
-    user: userReducer
+    user: userReducer,
+    favorites: favoritesReducer
 });
 
 const allStoreEnhancers = compose(
@@ -21,14 +43,19 @@ const allStoreEnhancers = compose(
     window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
 );
 
+// Create store with all reducers, initial values and store enhancers
 const store = createStore(
     allReducers,
     {
         trendingMovies: [{name: "spiderverse"}],
-        user: 'Mike'
+        user: 'Deniz'
     },
     allStoreEnhancers
 );
+
+// Dispatch the action
+store.dispatch(favoriteAction);
+store.dispatch({ type: 'ADD_FAVORITE', favorite: { type: "movie", data: {} }});
 
 ReactDOM.render(<Provider store={store}><App randomProps="whatever" /></Provider>, document.getElementById('root'));
 
