@@ -21,7 +21,7 @@ class TrendingMovies extends Component {
                     trending.push(
                         <li key={movie.id} className="MoviesSliderItem">
                             <Link to={{pathname: `/movies/${movie.id}`, state: {movieJSON: movie}}}>    
-                                <img src={"http://image.tmdb.org/t/p/w185" + movie.poster_path} alt="movie poster" style={{display: 'block', borderRadius: 5}} />
+                                <img src={"https://image.tmdb.org/t/p/w185" + movie.poster_path} alt="movie poster" style={{display: 'block', borderRadius: 5}} />
                                 <p>{movie.title}</p>
                             </Link>
                         </li>
@@ -38,7 +38,7 @@ class TrendingMovies extends Component {
                 trending.push(
                     <li key={movie.id} className="MoviesSliderItem">
                         <Link to={{pathname: `/movies/${movie.id}`, state: {movieJSON: movie}}}>
-                            <img src={"http://image.tmdb.org/t/p/w185" + movie.poster_path} alt="movie poster" style={{display: 'block', borderRadius: 5}} />
+                            <img src={"https://image.tmdb.org/t/p/w185" + movie.poster_path} alt="movie poster" style={{display: 'block', borderRadius: 5}} />
                             <p>{movie.title}</p>
                         </Link>
                     </li>

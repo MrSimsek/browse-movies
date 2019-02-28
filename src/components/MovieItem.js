@@ -7,7 +7,7 @@ export default class MovieItem extends Component {
         return(
             <li className="MovieItemContainer">
                 <div className="MovieItemPoster">
-                    <img width="150" src={"http://image.tmdb.org/t/p/w185" + movie.poster_path} alt="Movie Poster" />
+                    <img width="150" src={"https://image.tmdb.org/t/p/w185" + movie.poster_path} alt="Movie Poster" />
                 </div>
                 <div className="MovieItemInfo">
                     <Link to={{pathname: `/movies/${movie.id}`, state: {movieJSON: movie}}}><h2>{movie.title}</h2></Link>
