@@ -1,11 +1,26 @@
-.App {
-  text-align: center;
+.App-nav {
+  background-color: #000;
+  color: #fff;
+  font-size: 2em;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.App-navbar {
+  display: flex;
+  flex-direction: row;
+}
+
+.App-navbar > li {
+  margin: 0.5em;
+}
+
+.App-navbar > li > a {
+  text-decoration: none;
+  color: #fff;
 }
 
 .App-header {
@@ -30,4 +45,78 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.TrendingMovies {
+  width: 75%;
+  margin: auto;
+}
+
+.Trending {
+  overflow: scroll;
+}
+
+.Trending > ul {
+  width: 4000px;
+  display: flex;
+  flex-direction: row;
+}
+
+.Trending > ul > li {
+  display: inline-block;
+  margin-right: 1em;
+  max-width: 185px;
+  cursor: pointer;
+}
+
+.Trending > ul > li img:hover {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.SearchBar {
+  margin: 1em auto;
+  border: none;
+  font-size: 1em;
+  padding: 1em;
+  display: block;
+}
+
+.MoviesList {
+  padding: 0;
+  margin: auto;
+  list-style: none;
+  width: 75%;
+}
+
+.MoviesList > li {
+  margin: 1em;
+}
+
+.MoviesList > li:nth-child(odd) {
+  background-color: lightgrey;
+}
+
+.MovieItemContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.MovieItemInfo {
+  padding: 0 2em;
+}
+
+.App-footer {
+  margin: auto;
+  padding: 2em 0;
+  margin-top: 2em;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
