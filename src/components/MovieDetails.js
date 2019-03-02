@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class MovieDetails extends Component {
+class MovieDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -38,3 +39,5 @@ export default class MovieDetails extends Component {
         );
     }
 }
+
+export default connect()(MovieDetails);

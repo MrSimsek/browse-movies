@@ -4,38 +4,18 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import axios from 'axios';
+
 import thunk from 'redux-thunk';
 import { applyMiddleware, compose, combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-import trendingMoviesReducer from './reducers/trendingMoviesReducer';
 import userReducer from './reducers/userReducer';
-
-const initState = {
-    favorites: [],
-    garbages: []
-}
-
-// Reducers change the state
-function favoritesReducer(state = initState, action) {
-    switch(action.type) {
-        case 'ADD_FAVORITE':
-            return {
-                ...state,
-                favorites: [ ...state.favorites, action.favorite ]
-            };
-        default:
-            return state;
-    }
-}
-
-// Actions informs the store about a change
-const favoriteAction = { type: 'ADD_FAVORITE', favorite: { type: "movie", data: {} }}
+import rootReducer from './reducers/rootReducer';
 
 const allReducers = combineReducers({
-    trendingMovies: trendingMoviesReducer,
     user: userReducer,
-    favorites: favoritesReducer
+    trendingMovies: rootReducer
 });
 
 const allStoreEnhancers = compose(
@@ -47,15 +27,21 @@ const allStoreEnhancers = compose(
 const store = createStore(
     allReducers,
     {
-        trendingMovies: [{name: "spiderverse"}],
         user: 'partner'
     },
     allStoreEnhancers
 );
 
-// Dispatch the action
-store.dispatch(favoriteAction);
-store.dispatch({ type: 'ADD_FAVORITE', favorite: { type: "movie", data: {} }});
+store.dispatch((dispatch) => {
+    dispatch({type: 'FETCH_TRENDING_MOVIES_START'});
+    axios.get("https://api.themoviedb.org/3/trending/all/day?api_key=e4ec1a62ca35ee5e5b80771bbc54de06")
+        .then((response) => {
+            dispatch({ type: 'FETCH_TRENDING_MOVIES_SUCCESS', payload: response.data.results });
+        })
+        .catch((err) => {
+            dispatch({ type: 'FETCH_TRENDING_MOVIES_ERROR', payload: err });
+        });
+})
 
 ReactDOM.render(<Provider store={store}><App randomProps="whatever" /></Provider>, document.getElementById('root'));
 
