@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
+import Tilt from 'react-tilt';
 
 class TrendingMovies extends Component {
     render() {
@@ -9,8 +10,10 @@ class TrendingMovies extends Component {
             trendingMovies.map(movie => {
                 return (
                     <li key={movie.id} className="MoviesSliderItem">
-                        <Link to={{pathname: `/movies/${movie.id}`, state: {movieJSON: movie}}}>    
-                            <img src={"https://image.tmdb.org/t/p/w185" + movie.poster_path} alt="movie poster" style={{display: 'block', borderRadius: 5}} />
+                        <Link to={{pathname: `/movies/${movie.id}`, state: {movieJSON: movie}}}>
+                            <Tilt className="Tilt" options={{ scale: 1 }}>
+                                <img src={"https://image.tmdb.org/t/p/w185" + movie.poster_path} alt="movie poster" style={{display: 'block', borderRadius: 5, marginTop: '1em'}} />
+                            </Tilt> 
                             <p>{movie.title}</p>
                         </Link>
                     </li>
