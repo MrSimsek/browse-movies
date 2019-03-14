@@ -30,11 +30,6 @@ class App extends Component {
         <div className="App">
           <Nav user={this.props.user} />
 
-          {/* <form onSubmit={this.onUpdateUser} style={{margin: 'auto', width: '50%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: '1.5em'}}>
-            <input type="text" style={{fontSize: '1.5em'}} placeholder="What is your name?" onChange={this.handleChange} />
-            <input style={{border: 'none', fontSize: '1.5em'}} type="submit" value="Submit" />
-          </form> */}
-
           <Route exact path="/" component={HomePage} />
           <Route path="/search" component={SearchPage} />
           <Route path="/about" component={AboutPage} />
